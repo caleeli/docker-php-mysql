@@ -26,6 +26,7 @@ Puedes utilizar la configuración por defecto, pero en ocasiones es recomendable
 La instalación se hace en línea de comandos:
 
 ```zsh
+docker-compose build
 docker-compose up -d
 ```
 Puedes vaidar que se ha instalado correctamente accediendo a: [http://localhost/info.php](http://localhost/info.php)
