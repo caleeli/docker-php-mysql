@@ -13,7 +13,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "3306:3306"
+      - "${MYSQL_PORT}:3306"
     restart: always
 
   php:
@@ -24,7 +24,21 @@ services:
     container_name: docker-php
     ports:
       - "${PHP_PORT}:80"
+      - "${PM_PORT}:8080"
     volumes:
       - ./www:/var/www/html
+      - ./etc/apache2/sites:/etc/apache2/sites
+      - ./:/var/www/docker
     links:
       - mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links: 
+      - mysql:db
+    ports:
+        - "${PHP_MY_ADMIN_PORT}:80"
+    environment:
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
