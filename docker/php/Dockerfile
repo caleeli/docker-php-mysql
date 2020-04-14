@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
 	libmcrypt-dev \
 	libzip-dev zip libpng-dev
 
+RUN apt-get install -y git
+
 RUN apt-get update && apt-get install -y libc-client-dev libkrb5-dev && rm -r /var/lib/apt/lists/*
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-install imap
@@ -18,8 +20,6 @@ RUN pecl install xdebug-2.9.4 \
 	&& docker-php-ext-enable xdebug
 RUN pecl install mcrypt-1.0.3 \
 	&& docker-php-ext-enable mcrypt
-
-RUN apt-get install -y git
 
 RUN ssh-keygen -q -t rsa -N '' -f /root/.ssh/id_rsa
 
