@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y libc-client-dev libkrb5-dev && rm -r /v
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-install imap
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql mbstring zip gd xml
+RUN docker-php-ext-install mysqli pdo pdo_mysql mbstring zip gd xml soap
 RUN pecl install xdebug-2.9.4 \
 	&& docker-php-ext-enable xdebug
 RUN pecl install mcrypt-1.0.3 \
