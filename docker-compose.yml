@@ -29,7 +29,7 @@ services:
       itbcode_net:
         ipv4_address: 10.3.0.12
     environment:
-      PMA_HOST: mysql
+      PMA_HOST: 10.3.0.11
       PMA_USER: root
       PMA_PASSWORD: ${MYSQL_PASSWORD}
     ports:

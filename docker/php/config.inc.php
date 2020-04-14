@@ -19,3 +19,4 @@ $cfg['Servers'][$i]['password'] = getenv('PMA_PASSWORD');
 $cfg['Servers'][$i]['host'] = getenv('PMA_HOST');
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
+$cfg['TempDir'] = '/tmp';
